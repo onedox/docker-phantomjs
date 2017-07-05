@@ -1,5 +1,4 @@
 FROM debian:jessie
-MAINTAINER Werner Beroux <werner@beroux.com>
 
 # 1. Install compile and runtime dependencies
 # 2. Compile PhantomJS from the source code
@@ -26,7 +25,7 @@ RUN apt-get update \
         libjpeg-dev \
     && git clone --recurse-submodules https://github.com/ariya/phantomjs /tmp/phantomjs \
     && cd /tmp/phantomjs \
-    && git checkout -f tags/1.9.7 \
+    && git checkout -f tags/1.9.8 \
     && git clean -fdx \
     && ./build.sh --confirm --jobs 2 \
     && mv bin/phantomjs /usr/local/bin \

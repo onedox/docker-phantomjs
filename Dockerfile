@@ -4,20 +4,21 @@ FROM debian:jessie
 RUN apt-get update \
  && apt-get install -y --no-install-recommends \
         ca-certificates \
-        bzip2 \
+        unzip \
         libfontconfig \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/*
 
 RUN set -x  \
-    # Install official PhantomJS release
+    # Install PhantomJS pre-release: https://github.com/Vitallium/phantomjs/releases/tag/2.0.1
  && apt-get update \
  && apt-get install -y --no-install-recommends \
         curl \
  && mkdir /tmp/phantomjs \
- && curl -L https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-1.9.8-linux-x86_64.tar.bz2 \
-        | tar -xj --strip-components=1 -C /tmp/phantomjs \
- && mv /tmp/phantomjs/bin/phantomjs /usr/local/bin \
+ && curl -L https://github.com/Vitallium/phantomjs/releases/download/2.0.1/phantomjs-2.0.1-linux-x86_64.zip > /tmp/phantomjs.zip \
+ && unzip /tmp/phantomjs.zip -d /tmp \
+ && mv /tmp/phantomjs-2.0.1-linux-x86_64/bin/phantomjs /usr/local/bin \
+ && chmod a+x /usr/local/bin/phantomjs \
     # Install dumb-init (to handle PID 1 correctly).
     # https://github.com/Yelp/dumb-init
  && curl -Lo /tmp/dumb-init.deb https://github.com/Yelp/dumb-init/releases/download/v1.1.3/dumb-init_1.1.3_amd64.deb \

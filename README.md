@@ -1,9 +1,9 @@
 # Supported tags and respective `Dockerfile` links
 
-  * [`latest`](https://github.com/wernight/docker-phantomjs/blob/master/Dockerfile) built from the [latest PhantomJS snapshot](https://github.com/ariya/phantomjs/commits/master) [![](https://images.microbadger.com/badges/image/wernight/phantomjs.svg)](http://microbadger.com/images/wernight/phantomjs "Get your own image badge on microbadger.com")
-  * [`2`, `2.1`, `2.1.1`](https://github.com/wernight/docker-phantomjs/blob/v2.1.1/Dockerfile) [![](https://images.microbadger.com/badges/image/wernight/phantomjs:2.1.svg)](http://microbadger.com/images/wernight/phantomjs "Get your own image badge on microbadger.com")
-  * [`2.0`, `2.0.0`](https://github.com/wernight/docker-phantomjs/blob/v2.0.0/Dockerfile) [![](https://images.microbadger.com/badges/image/wernight/phantomjs:2.0.svg)](http://microbadger.com/images/wernight/phantomjs "Get your own image badge on microbadger.com")
-  * [`1`, `1.9`, `1.9.7`](https://github.com/wernight/docker-phantomjs/blob/v1.9.7/Dockerfile) [![](https://images.microbadger.com/badges/image/wernight/phantomjs:1.svg)](http://microbadger.com/images/wernight/phantomjs "Get your own image badge on microbadger.com")
+  * [`latest`](https://github.com/ideavate/docker-phantomjs/blob/master/Dockerfile) built from the [latest PhantomJS snapshot](https://github.com/ariya/phantomjs/commits/master)
+  * [`2`, `2.1`, `2.1.1`](https://github.com/ideavate/docker-phantomjs/blob/v2.1.1/Dockerfile)
+  * [`2.0`, `2.0.0`](https://github.com/ideavate/docker-phantomjs/blob/v2.0.0/Dockerfile)
+  * [`1`, `1.9`, `1.9.7`](https://github.com/ideavate/docker-phantomjs/blob/v1.9.7/Dockerfile)
 
 ## What is PhantomJS
 
@@ -26,14 +26,14 @@ This [Dockerized][docker] version of PhantomJS is:
  
 Start PhantomJS in [REPL](http://phantomjs.org/repl.html):
 
-    $ docker run --rm wernight/phantomjs
+    $ docker run --rm ideavate/phantomjs
     >
 
 ### Remote WebDriver
 
 Start as 'Remote WebDriver mode' (embedded [GhostDriver](https://github.com/detro/ghostdriver)):
 
-    $ docker run -d -p 8910:8910 wernight/phantomjs phantomjs --webdriver=8910
+    $ docker run -d -p 8910:8910 ideavate/phantomjs phantomjs --webdriver=8910
 
 To connect to it (some examples per language):
 
@@ -58,10 +58,10 @@ To connect to it (some examples per language):
         driver.quit()
 
 
-## Feedbacks
+## Feedback
 
 Improvement ideas and pull requests are welcome via
-[Github Issue Tracker](https://github.com/wernight/docker-phantomjs/issues).
+[Github Issue Tracker](https://github.com/ideavate/docker-phantomjs/issues).
 
 [phantomjs]:        http://phantomjs.org/
 [docker]:           https://www.docker.io/

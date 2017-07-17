@@ -1,11 +1,20 @@
-FROM debian:jessie
+FROM ubuntu:xenial
 
 # Install runtime dependencies
 RUN apt-get update \
  && apt-get install -y --no-install-recommends \
         ca-certificates \
-        bzip2 \
         libfontconfig \
+        libpng-dev \
+        libjpeg-dev \
+        libwebp-dev \
+        openssl \
+        zlibc \
+        libfreetype6 \
+        libicu-dev \
+        libxml2 \
+        libxslt1-dev \
+        libhyphen0 \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/*
 
@@ -15,8 +24,8 @@ RUN set -x  \
  && apt-get install -y --no-install-recommends \
         curl \
  && mkdir /tmp/phantomjs \
- && curl -L https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2 \
-        | tar -xj --strip-components=1 -C /tmp/phantomjs \
+ && curl -L https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.5.0-beta-linux-ubuntu-xenial-x86_64.tar.gz \
+        | tar -xz --strip-components=1 -C /tmp/phantomjs \
  && mv /tmp/phantomjs/bin/phantomjs /usr/local/bin \
     # Install dumb-init (to handle PID 1 correctly).
     # https://github.com/Yelp/dumb-init
@@ -30,7 +39,8 @@ RUN set -x  \
     \
     # Run as non-root user.
  && useradd --system --uid 72379 -m --shell /usr/sbin/nologin phantomjs \
- && su phantomjs -s /bin/sh -c "phantomjs --version"
+ && chmod a+x /usr/local/bin/phantomjs \
+ && chown phantomjs.phantomjs /usr/local/bin/phantomjs
 
 USER phantomjs
 

@@ -1,9 +1,9 @@
 # Supported tags and respective `Dockerfile` links
 
-  * [`latest`](https://github.com/ideavate/docker-phantomjs/blob/master/Dockerfile) built from the [latest PhantomJS snapshot](https://github.com/ariya/phantomjs/commits/master)
-  * [`2`, `2.1`, `2.1.1`](https://github.com/ideavate/docker-phantomjs/blob/v2.1.1/Dockerfile)
-  * [`2.0`, `2.0.0`](https://github.com/ideavate/docker-phantomjs/blob/v2.0.0/Dockerfile)
-  * [`1`, `1.9`, `1.9.7`](https://github.com/ideavate/docker-phantomjs/blob/v1.9.7/Dockerfile)
+  * [`2`, `2.5`, `2.5.0-beta`](https://github.com/ideavate/docker-phantomjs/blob/v2.5.0-beta/Dockerfile)
+  * [`2.1`, `2.1.1`](https://github.com/ideavate/docker-phantomjs/blob/v2.1.1/Dockerfile)
+  * [`2.0`, `2.0.1`](https://github.com/ideavate/docker-phantomjs/blob/v2.0.1/Dockerfile)
+  * [`1`, `1.9`, `1.9.8`](https://github.com/ideavate/docker-phantomjs/blob/v1.9.8/Dockerfile)
 
 ## What is PhantomJS
 
@@ -23,7 +23,7 @@ This [Dockerized][docker] version of PhantomJS is:
 ## Usage
 
 ### JavaScript interactive shell
- 
+
 Start PhantomJS in [REPL](http://phantomjs.org/repl.html):
 
     $ docker run --rm ideavate/phantomjs
@@ -44,7 +44,7 @@ To connect to it (some examples per language):
             DesiredCapabilities.phantomjs());
 
   * Python (after running [`$ pip install selenium`](https://pypi.python.org/pypi/selenium/)):
-  
+
         from selenium import webdriver
         from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 
@@ -54,7 +54,7 @@ To connect to it (some examples per language):
 
         driver.get('http://example.com')
         driver.find_element_by_css_selector('a[title="hello"]').click()
-        
+
         driver.quit()
 
 
